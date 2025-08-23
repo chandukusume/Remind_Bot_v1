@@ -3,6 +3,9 @@ FROM rasa/rasa-sdk:latest
 
 WORKDIR /app
 
+# Tell Python to look for modules in the /app directory
+ENV PYTHONPATH=/app
+
 COPY requirements.txt .
 
 # Switch to the root user to install packages
