@@ -1,0 +1,15 @@
+{
+  "0": "admin_broadcast",
+  "1": "admin_view_feedback",
+  "2": "ask_faq",
+  "3": "check_current_form",
+  "4": "get_count",
+  "5": "get_syllabus",
+  "6": "goodbye",
+  "7": "greet",
+  "8": "send_reminder",
+  "9": "start",
+  "10": "submit_feedback",
+  "11": "track_form",
+  "12": "view_timetable"
+}

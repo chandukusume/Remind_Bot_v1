@@ -1,0 +1,12 @@
+# Dockerfile.rasa
+FROM rasa/rasa:latest-full
+
+# Copy your entire project into the container
+WORKDIR /app
+COPY . .
+
+# Expose the port Rasa will run on
+EXPOSE 5005
+
+# Command to run when the container starts
+CMD ["run", "--enable-api", "--cors", "*", "--debug"]
