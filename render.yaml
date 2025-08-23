@@ -6,7 +6,7 @@ services:
     env: docker
     dockerfilePath: ./Dockerfile.rasa
     healthCheckPath: /
-    #startCommand: "rasa run --enable-api --cors '*' --connector telegram"
+    startCommand: "rasa run --enable-api --cors '*' --connector telegram"
     envVars:
       - fromGroup: rasa-secrets
 
