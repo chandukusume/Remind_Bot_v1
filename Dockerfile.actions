@@ -1,8 +1,0 @@
-# In Dockerfile.actions
-FROM rasa/rasa-sdk:latest
-
-WORKDIR /app
-
-COPY actions /app/actions
-
-CMD ["start", "--actions", "actions"]

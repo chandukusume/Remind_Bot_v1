@@ -1,9 +1,0 @@
-# In Dockerfile.rasa
-FROM rasa/rasa:latest-full
-
-WORKDIR /app
-
-COPY . .
-
-# The start command now lives here
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--connector", "telegram"]
