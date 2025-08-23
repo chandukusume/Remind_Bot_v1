@@ -1,17 +1,15 @@
-# In render.yaml
-
 services:
   - name: rasa-server
     type: web
     plan: free
     env: docker
     dockerfilePath: ./Dockerfile.rasa
-    # ... other settings ...
-    envVars: # <-- THIS SECTION IS CRITICAL
-      - key: TELEGRAM_ACCESS_TOKEN
-        value: "your_actual_telegram_bot_token"
-      - key: TELEGRAM_VERIFY
-        value: "your_chosen_secret_string"
-      - key: TELEGRAM_WEBHOOK_URL
-        value: "https://your-rasa-server-name.onrender.com/webhooks/telegram/webhook"
-      # ... any other env vars ...
+    healthCheckPath: /
+    envVars:
+      - fromGroup: rasa-secrets # Recommended: Use an environment group for secrets
+
+  - name: rasa-actions
+    type: worker # Use 'worker' for the action server
+    plan: free
+    env: docker
+    dockerfilePath: ./Dockerfile.actions # Points to the Dockerfile for your actions
