@@ -9,4 +9,4 @@ COPY . .
 EXPOSE 5005
 
 # Command to run when the container starts
-CMD ["run", "--enable-api", "--cors", "*", "--debug"]
+CMD ["run", "--enable-api", "--cors", "*", "--credentials", "credentials.yml"]
