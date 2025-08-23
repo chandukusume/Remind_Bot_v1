@@ -5,4 +5,5 @@ WORKDIR /app
 
 COPY . .
 
-# The CMD line is no longer needed here.
+# The start command now lives here
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--connector", "telegram"]
