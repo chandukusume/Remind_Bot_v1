@@ -1,0 +1,35 @@
+# General Ignore Rules
+.DS_Store
+.env
+.venv/
+venv/
+__pycache__/
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+*.so
+.Python
+
+# Rasa-specific ignores
+# Ignore the trained models, which can be very large.
+# They should be trained on the deployment server or via CI/CD.
+models/
+rasa.db
+dialogue_management_model.tar.gz # Old model name, good to include
+nlu_model.tar.gz # Old model name
+
+# Virtual environments and dependencies
+# The environment you created with rasa_env
+/rasa_env/
+*/site-packages
+
+# Logs
+rasa_core.log
+rasa.log
+actions/actions.log
+
+# Secret files
+# DO NOT commit your credentials.json file or any secret keys.
+credentials.json
