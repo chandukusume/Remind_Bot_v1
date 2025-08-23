@@ -7,7 +7,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import ReminderScheduled, FollowupAction
 
 # Import utility functions from the utils.py file
-from .utils import get_count, send_reminder, get_config_path
+from utils import get_count, send_reminder, get_config_path
 
 # --- Helper Function for Configuration ---
 def load_config():
