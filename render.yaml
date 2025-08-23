@@ -3,6 +3,7 @@
 services:
   - name: rasa-server
     type: web
+    plan: free
     env: docker
     dockerfilePath: ./Dockerfile.rasa
     # ... other settings ...
