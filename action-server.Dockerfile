@@ -6,7 +6,8 @@ WORKDIR /app
 # Tell Python to look for modules in the /app directory
 ENV PYTHONPATH=/app
 
-COPY requirements.txt .
+# Copy ALL project files into the container
+COPY . .
 
 # Switch to the root user to install packages
 USER root
@@ -17,7 +18,5 @@ RUN pip install -r requirements.txt
 # Switch back to the default user
 USER 1001
 
-# Copy your custom action code
-COPY actions /app/actions
-
+# Start the action server
 CMD ["start", "--actions", "actions"]
