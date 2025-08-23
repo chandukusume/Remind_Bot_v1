@@ -1,17 +1,16 @@
-# In render.yaml
 services:
+  # --- The main Rasa Server ---
   - name: rasa-server
     type: web
-    plan: free
     env: docker
-    dockerfilePath: ./Dockerfile.rasa
+    plan: free
+    dockerfilePath: ./rasa-server.Dockerfile
     healthCheckPath: /
-    startCommand: "rasa run --enable-api --cors '*' --connector telegram"
     envVars:
       - fromGroup: rasa-secrets
-
-  - name: rasa-actions
-    type: worker
-    plan: free
+  # --- The Rasa Action Server ---
+  - name: action-server
+    type: web
     env: docker
-    dockerfilePath: ./Dockerfile.actions
+    plan: free
+    dockerfilePath: ./action-server.Dockerfile
