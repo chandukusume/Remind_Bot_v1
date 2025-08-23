@@ -1,7 +1,8 @@
+# In Dockerfile.rasa
 FROM rasa/rasa:latest-full
 
 WORKDIR /app
 
 COPY . .
 
-CMD ["run", "--enable-api", "--cors", "*", "--credentials", "credentials.yml", "--endpoints", "endpoints.yml"]
+# The CMD line is no longer needed here.

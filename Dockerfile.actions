@@ -1,12 +1,8 @@
-# Dockerfile.actions
-FROM rasa/sdk:latest
+# In Dockerfile.actions
+FROM rasa/rasa-sdk:latest
 
-# Copy only the actions folder
 WORKDIR /app
-COPY actions/ /app/actions
 
-# Expose the port the action server runs on
-EXPOSE 5055
+COPY actions /app/actions
 
-# Command to run when the container starts
-CMD ["run", "actions"]
+CMD ["start", "--actions", "actions"]
