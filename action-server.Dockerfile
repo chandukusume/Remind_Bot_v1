@@ -1,13 +1,20 @@
-# This is action-server.Dockerfile
+# In Dockerfile.actions
 FROM rasa/rasa-sdk:latest
+
 WORKDIR /app
+
 COPY requirements.txt .
+
+# Switch to the root user to install packages
+USER root
+
+# Install python dependencies
 RUN pip install -r requirements.txt
 
+# Switch back to the default user
+USER 1001
+
+# Copy your custom action code
 COPY actions /app/actions
 
-# Temporarily add this line for debugging
-#CMD ["ls", "-R", "/app"]
-
-# Comment out your original command
-CMD ["run", "actions", "--cors", "*", "--port", "8080"]
+CMD ["start", "--actions", "actions"]
