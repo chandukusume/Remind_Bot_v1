@@ -6,6 +6,8 @@ services:
     plan: free
     dockerfilePath: ./rasa-server.Dockerfile
     healthCheckPath: /
+    # This startCommand is the definitive fix for the 404 error
+    startCommand: "rasa run --enable-api --cors '*' --credentials credentials.yml --endpoints endpoints.yml --connector telegram"
     envVars:
       - fromGroup: rasa-secrets
   # --- The Rasa Action Server ---
