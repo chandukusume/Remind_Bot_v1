@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 USER 1001
 
 # The CMD line now includes the Telegram connector
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--connector", "telegram", "--credentials", "credentials.yml"]
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--connector", "telegram"]
