@@ -3,20 +3,14 @@ FROM rasa/rasa-sdk:latest
 
 WORKDIR /app
 
-# Tell Python to look for modules in the /app directory
-ENV PYTHONPATH=/app
-
-# Copy ALL project files into the container
+# Copy all files
 COPY . .
 
-# Switch to the root user to install packages
-USER root
-
-# Install python dependencies
+# Install Python dependencies
 RUN pip install -r requirements.txt
 
-# Switch back to the default user
-USER 1001
+# Expose the port the action server runs on
+EXPOSE 5055
 
-# Start the action server
-CMD ["start", "--actions", "actions"]
+# Command to run when the container starts
+CMD ["run", "actions"]

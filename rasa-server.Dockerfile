@@ -1,17 +1,15 @@
-# In Dockerfile.rasa
+# In rasa-server.Dockerfile
 FROM rasa/rasa:latest-full
 
+# Copy your entire project into the container 
 WORKDIR /app
-
 COPY . .
 
-# Switch to the root user to install packages
-USER root
-
+# Install Python dependencies
 RUN pip install -r requirements.txt
 
-# Switch back to the default user
-USER 1001
+# Expose the port Rasa will run on 
+EXPOSE 5005
 
-# The CMD line now includes the Telegram connector
+# Command to run when the container starts
 CMD ["run", "--enable-api", "--cors", "*", "--credentials", "credentials.yml", "--endpoints", "endpoints.yml", "--connector", "telegram"]
