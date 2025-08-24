@@ -6,7 +6,7 @@ services:
     plan: free
     dockerfilePath: ./rasa-server.Dockerfile
     healthCheckPath: /
-       envVars:
+    envVars:
       - fromGroup: rasa-secrets
   # --- The Rasa Action Server ---
   - name: action-server
